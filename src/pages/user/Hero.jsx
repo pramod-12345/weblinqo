@@ -8,6 +8,10 @@ import Features from './LandingPage/Features';
 import Customize from './LandingPage/Customize';
 import TrafficAnalyticsSection from './LandingPage/TrafficAnalytics';
 import SmartLinkSection from './LandingPage/SmartLink';
+import Footer from './LandingPage/Footer';
+import Faq from './LandingPage/Faqs';
+import PricingPlans from './LandingPage/Pricing';
+import Templates from './LandingPage/Templates';
 
 const dummyAvatars = [
   '/avatar1.jpg',
@@ -106,16 +110,39 @@ export default function WebLinqoLanding() {
       <Hero />
 
       {/* customize */}
-      <Customize/>
+      <Customize />
 
       {/* Feature */}
-      <Features/>
+      <Features />
+
+      <Templates
+        templates={templates}
+        containerRef={containerRef}
+        handleScroll={handleScroll}
+        showLeftArrow={showLeftArrow}
+        showRightArrow={showRightArrow}
+      />
 
       {/* Traffic Analytics */}
-      <TrafficAnalyticsSection/>
+      <TrafficAnalyticsSection />
+
+      {/* FAQs */}
+      <Faq />
+
+      {/* Pricing */}
+      <PricingPlans />
 
       {/* Smart link */}
-      <SmartLinkSection/>
+      <SmartLinkSection />
+
+      <Footer />
+      <div className="w-full flex justify-center">
+        <div className="space-y-6 bg-primary py-3 px-6 w-full">
+          <p className="text-size-14 text-white text-center font-medium leading-normal">
+            weblinqo © 2025. All rights reserved.
+          </p>
+        </div>
+      </div>
 
       {/* Features Section */}
       <section className="px-6 py-16 max-w-7xl mx-auto text-center">
@@ -453,6 +480,6 @@ export default function WebLinqoLanding() {
         </div>
       </section>
 
-      </div > 
-  );  
+    </div >
+  );
 }

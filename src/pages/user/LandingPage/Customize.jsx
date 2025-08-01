@@ -7,7 +7,7 @@ const Customize = () => {
         <>
             <SectionTitle title={'Create and customize your Weblinqo in minutes'} />
             <section className='bg-white'>
-                <div className='max-w-7xl mx-auto flex justify-between items-center'>
+                <div className='max-w-7xl mx-auto flex justify-between flex-col pt-5 lg:pt-0 lg:flex-row items-center'>
                     <div className='flex items-center justify-center'>
                         <p className='text-center font-normal text-gray-400 text-size-18 leading-8'>
                             "Design your Weblinqo. Customize in minutes." <br />(Concise and action-oriented)<br />

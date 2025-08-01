@@ -48,22 +48,27 @@ const features = [
 const Features = () => {
     return (
         <>
-            <SectionTitle title={'Features'} />
             <section className=''>
-                <div className="max-w-7xl mx-auto p-6 bg-white border-2 border-secondary rounded-bl-[150px] rounded-tr-[150px] rounded-br-3xl rounded-tl-3xl shadow-md px-[114px]">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-                        {features.map((feature, index) => (
-                            <div
-                                key={index}
-                                className="flex flex-col items-start p-4 gap-4 border border-secondary rounded-2xl shadow-sm bg-white hover:shadow-md transition"
-                            >
-                                <h3 className="font-semibold text-size-20 m-0 text-center w-full leading-6">{feature.title}</h3>
-                                <div className='flex justify-center w-full'>
-                                    <div className="text-black mb-2 text-center">{feature.icon}</div>
+                <div className='max-w-7xl bg-primary pb-16  rounded-bl-[150px] mx-auto rounded-tr-[150px] rounded-br-3xl rounded-tl-3xl shadow-md'>
+                    <SectionTitle style={'pt-8'} color={'text-white'} title={'Features'} />
+                    <div className=" relative mx-auto px-16 ">
+                        <div className="absolute inset-0 flex justify-center items-center overflow-hidden z-0">
+                            <div className="h-[80%] md:h-[80%] w-[60%] sm:w-[70%] lg:h-[400px] bg-white" />
+                        </div>
+                        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                            {features.map((feature, index) => (
+                                <div
+                                    key={index}
+                                    className="flex flex-col items-start p-4 gap-4 border border-secondary rounded-2xl shadow-sm bg-white hover:shadow-md transition"
+                                >
+                                    <h3 className="font-semibold text-size-20 m-0 text-center w-full leading-6">{feature.title}</h3>
+                                    <div className='flex justify-center w-full'>
+                                        <div className="text-black mb-2 text-center">{feature.icon}</div>
+                                    </div>
+                                    <p className="text-sm text-gray-700">{feature.description}</p>
                                 </div>
-                                <p className="text-sm text-gray-700">{feature.description}</p>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

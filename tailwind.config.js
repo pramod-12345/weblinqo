@@ -10,13 +10,16 @@ module.exports = {
       },
       colors: {
         primary: '#2848F0',
-        secondary: '#0D569A'
+        secondary: '#0D569A',
+        logoGolden: '#C7AE6AEA',
+        charCoalBlack: '#232323'
       },
       fontSize: {
         'size-12': '0.75rem', 
         'size-14': '0.875rem', 
         'size-16': '1rem', 
         'size-18': '1.125rem', 
+        'size-20': '1.25rem',
         'size-24': '1.5rem', 
         'size-32': '2rem', 
         'size-40': '2.5rem', 
