@@ -1,50 +1,19 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import Hero from "./Hero";
 import Features from "./Features";
 import Templates from "./Templates";
-import Pricing from "./Pricing";
+import PricingPlans from "./Pricing";
+import SmartLinkSection from "./SmartLink";
+import Footer from "./Footer";
+import Faq from "./Faqs";
+import TrafficAnalyticsSection from "./TrafficAnalytics";
+import Customize from "./Customize";
+import api from "../../../services/api";
+import Navbar from "../../../components/shared/navbar";
 
-const dummyAvatars = [
-  '/avatar1.jpg',
-  '/avatar2.avif',
-  '/avatar3.jpg',
-  '/avatar4.jpeg'
-];
 
 const WebLinqoLanding = () => {
-     const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(false);
-  const containerRef = useRef(null);
-  const [plans, setPlans] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [templates, setTemplates] = useState([]);
-
-  const handleScroll = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-      setShowLeftArrow(scrollLeft > 0);
-      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-      const resizeObserver = new ResizeObserver(handleScroll);
-      resizeObserver.observe(container);
-
-      // Initial check
-      handleScroll();
-
-      return () => {
-        container.removeEventListener('scroll', handleScroll);
-        resizeObserver.disconnect();
-      };
-    }
-  }, [templates]);
 
   useEffect(() => {
     const fetchTemplates = async () => {
@@ -52,7 +21,7 @@ const WebLinqoLanding = () => {
         const response = await api.get('/api/v1/template/');
         setTemplates(response.data.data);
         // Force a scroll check after templates are loaded
-        setTimeout(handleScroll, 100);
+        // setTimeout(handleScroll, 100);
       } catch (error) {
         console.error('Error fetching templates:', error);
       }
@@ -61,28 +30,54 @@ const WebLinqoLanding = () => {
     fetchTemplates();
   }, []);
 
-  useEffect(() => {
-    const fetchPlans = async () => {
-      try {
-        const response = await api.get('/api/v1/subscription/plans');
-        setPlans(response.data.data);
-      } catch (err) {
-        console.error('Error fetching pricing plans:', err);
-        setError('Unable to fetch plans');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPlans();
-  }, []);
-    return (
-        <div className="min-h-screen bg-[#f5f3f0] ">
-            <Hero />
-            <Features/>
-            <Templates templates={templates} containerRef={containerRef} handleScroll={handleScroll}/>
-            <Pricing/>
+  return (
+    <div className="min-h-screen bg-offWhite ">
+      {/* Header */}
+      <Navbar />
+      {/* blue strip */}
+      <div className="max-w-7xl mx-auto flex justify-center">
+        <div className="space-y-6 bg-gradient-to-r from-primary to-purple-500 py-3 px-6 rounded-b-lg">
+          <p className="text-size-14 text-white font-normal tracking-wide text-center leading-normal">
+            Time to convert clicks into customers. Weblingo new growth tools are here!
+          </p>
         </div>
-    )
+      </div>
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* customize */}
+      <Customize />
+
+      {/* Feature */}
+      <Features />
+
+      <Templates/>
+
+      {/* Traffic Analytics */}
+      <TrafficAnalyticsSection />
+
+      {/* FAQs */}
+      <Faq />
+
+      {/* Pricing */}
+      <PricingPlans />
+
+      {/* Smart link */}
+      <SmartLinkSection />
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Copyright */}
+      <div className="w-full flex justify-center">
+        <div className="space-y-6 bg-primary py-3 px-6 w-full">
+          <p className="text-size-14 text-white text-center font-medium leading-normal">
+            weblinqo © 2025. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  )
 }
 export default WebLinqoLanding;

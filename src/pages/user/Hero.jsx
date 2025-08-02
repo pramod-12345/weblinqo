@@ -28,38 +28,10 @@ const dummyBios = [
 ];
 
 export default function WebLinqoLanding() {
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(false);
-  const containerRef = useRef(null);
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [templates, setTemplates] = useState([]);
-
-  const handleScroll = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-      setShowLeftArrow(scrollLeft > 0);
-      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-      const resizeObserver = new ResizeObserver(handleScroll);
-      resizeObserver.observe(container);
-
-      // Initial check
-      handleScroll();
-
-      return () => {
-        container.removeEventListener('scroll', handleScroll);
-        resizeObserver.disconnect();
-      };
-    }
-  }, [templates]);
 
   useEffect(() => {
     const fetchTemplates = async () => {
@@ -67,7 +39,7 @@ export default function WebLinqoLanding() {
         const response = await api.get('/api/v1/template/');
         setTemplates(response.data.data);
         // Force a scroll check after templates are loaded
-        setTimeout(handleScroll, 100);
+        // setTimeout(handleScroll, 100);
       } catch (error) {
         console.error('Error fetching templates:', error);
       }
@@ -94,13 +66,13 @@ export default function WebLinqoLanding() {
 
   return (
 
-    <div className="min-h-screen bg-[#f5f3f0] ">
+    <div className="min-h-screen bg-offWhite ">
       {/* Header */}
       <Navbar />
       {/* blue strip */}
       <div className="max-w-7xl mx-auto flex justify-center">
-        <div className="space-y-6 bg-primary py-3 px-6 rounded-b-lg">
-          <p className="text-size-14 text-white font-medium leading-normal">
+        <div className="space-y-6 bg-gradient-to-r from-primary to-purple-500 py-3 px-6 rounded-b-lg">
+          <p className="text-size-14 text-white font-normal tracking-wide text-center leading-normal">
             Time to convert clicks into customers. Weblingo new growth tools are here!
           </p>
         </div>
@@ -115,13 +87,7 @@ export default function WebLinqoLanding() {
       {/* Feature */}
       <Features />
 
-      <Templates
-        templates={templates}
-        containerRef={containerRef}
-        handleScroll={handleScroll}
-        showLeftArrow={showLeftArrow}
-        showRightArrow={showRightArrow}
-      />
+      <Templates/>
 
       {/* Traffic Analytics */}
       <TrafficAnalyticsSection />
@@ -215,7 +181,7 @@ export default function WebLinqoLanding() {
       </section>
 
       {/* Templates Section */}
-      <section id="templates" className="px-6 py-16 max-w-7xl mx-auto text-center bg-[#f5f3f0]">
+      {/* <section id="templates" className="px-6 py-16 max-w-7xl mx-auto text-center bg-[#f5f3f0]">
         <div className="inline-block bg-[#c4ff4d] px-6 py-2 rounded-full mb-6">
           <span className="font-semibold text-gray-900">Templates</span>
         </div>
@@ -224,9 +190,7 @@ export default function WebLinqoLanding() {
           Pick from a variety of professionally designed templates to make your weblinqo page stand out.
         </p>
 
-        {/* Scrollable Templates Container with Smart Arrows */}
         <div className="relative">
-          {/* Left Arrow */}
           <button
             className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md transition-opacity duration-200 hover:bg-gray-50 ${showLeftArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             onClick={() => {
@@ -238,7 +202,6 @@ export default function WebLinqoLanding() {
             </svg>
           </button>
 
-          {/* Templates Container */}
           <div
             id="templates-container"
             ref={containerRef}
@@ -262,7 +225,6 @@ export default function WebLinqoLanding() {
                     height: '480px'
                   }}
                 >
-                  {/* Overlay with "Choose Template" button that appears on hover */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Link
                       to="/signup"
@@ -302,7 +264,6 @@ export default function WebLinqoLanding() {
             )}
           </div>
 
-          {/* Right Arrow */}
           <button
             className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-md transition-opacity duration-200 hover:bg-gray-50 ${showRightArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             onClick={() => {
@@ -314,7 +275,7 @@ export default function WebLinqoLanding() {
             </svg>
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* Social Platforms Section */}
       <section className="px-6 py-16 max-w-7xl mx-auto bg-white rounded-3xl shadow-lg">
@@ -417,7 +378,6 @@ export default function WebLinqoLanding() {
 
       </section>
 
-      {/* CTA Section */}
       {/* CTA Section */}
       <section className="px-6 py-20 mx-6 mb-16 bg-gradient-to-br from-black to-gray-900 rounded-3xl text-white text-center max-w-7xl lg:mx-auto relative overflow-hidden">
         {/* Animated background elements */}

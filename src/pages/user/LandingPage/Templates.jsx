@@ -138,6 +138,8 @@ import template3 from '../../../assets/images/templates/template3.svg';
 import template4 from '../../../assets/images/templates/template4.svg';
 import SectionTitle from './SectionTitle';
 import Triangle from './Arrow';
+import templatesBg from '../../../assets/images/svg/templatesBg.svg';
+import { Link } from 'react-router-dom';
 
 const templates = [
     {
@@ -198,47 +200,62 @@ const Templates = () => {
     };
 
     return (
-        <section className="relative bg-[#f6f3f0] py-20">
-            <div className="absolute inset-0 flex justify-center items-center overflow-hidden z-0">
+        <section className=" bg-[#f6f3f0] py-20 ">
+            {/* <div className="absolute inset-0 flex justify-center items-center overflow-hidden z-0">
                 <div className="w-[90%] h-[700px] rounded-full bg-gradient-to-r from-[#6e7dfc] to-[#56a7f4] blur-[100px] opacity-70" />
-            </div>
+            </div> */}
 
-            <div className="relative z-10 max-w-7xl mx-auto text-center p-4 text-white">
-                <SectionTitle title={'Templates'} />
-                <p className="mb-10 text-size-18 text-black">
-                    "Crafted for creators, built for impact. <br />
-                    Our templates make your page shine effortlessly."
-                </p>
+            {/* <div style={{backgroundImage: `url(${templatesBg})`}} className={`relative z-10 max-w-[92%] mx-auto text-center p-4 h-[1150px] py-32 px-10 text-white overflow-hidden bg-cover bg-center`}> */}
+            <div className={`relative z-10 mx-auto text-center p-4 px-10 text-white `}>
+                <div className="w-[100%] h-[80vh] md:h-[100vh] lg:h-[120vh] bg-template-gradient rounded-[50%] absolute z-0 border-8 left-0 border border-white" />
+                <div className='relative z-10 px-5'>
 
-                <div className="flex items-center justify-center gap-4">
-                    <button
-                        className="cursor-pointer"
-                        onClick={() => scroll('left')}
-                    >
-                        <Triangle direction="left" color="white" size="24" />
-                    </button>
+                    <SectionTitle title={'Templates'} style={'mt-[20px]'} color={'text-white'} />
+                    <p className="mb-10 text-size-18 text-white">
+                        "Crafted for creators, built for impact. <br />
+                        Our templates make your page shine effortlessly."
+                    </p>
 
-                    <div
-                        ref={scrollRef}
-                        className="flex items-center justify-start gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
-                        style={{ scrollBehavior: 'smooth' }}
-                    >
-                        {templates.map((template, idx) => (
-                            <div
-                                key={idx}
-                                className="w-72 min-w-[240px] md:min-w-72 rounded-xl shadow-lg p-4 flex flex-col justify-between bg-cover text-white"
-                            >
-                                <img src={template.bg} alt={template.name} />
-                            </div>
-                        ))}
+                    <div className="flex items-center justify-center gap-4">
+                        <button
+                            className="cursor-pointer"
+                            onClick={() => scroll('left')}
+                        >
+                            <Triangle direction="left" color="white" size="24" />
+                        </button>
+
+                        <div
+                            ref={scrollRef}
+                            className="flex items-center justify-start gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
+                            style={{ scrollBehavior: 'smooth' }}
+                        >
+                            {templates.map((template, idx) => (
+                                <div
+                                    key={idx}
+                                    className="relative w-72 min-w-[240px] md:min-w-[316px] rounded-xl shadow-lg p-4 flex flex-col justify-between bg-cover text-white group"
+                                >
+                                    {/* Overlay with "Choose Template" button that appears on hover */}
+                                    <div className="absolute z-10 inset-0 bg-black bg-opacity-50 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <Link
+                                            to="/signup"
+                                            className="bg-primary hover:bg-white text-white hover:text-primary border-primary  border-2 border  font-semibold text-base px-6 py-2.5 rounded-full border-0 shadow-none transition-all duration-200 hover:scale-105"
+                                            state={{ templateId: template.id }} // Optional: pass template ID to signup page
+                                        >
+                                            Choose Template
+                                        </Link>
+                                    </div>
+                                    <img className='relative z-0' src={template.bg} alt={template.name} />
+                                </div>
+                            ))}
+                        </div>
+
+                        <button
+                            className="cursor-pointer"
+                            onClick={() => scroll('right')}
+                        >
+                            <Triangle direction="right" color="white" size="24" />
+                        </button>
                     </div>
-
-                    <button
-                        className="cursor-pointer"
-                        onClick={() => scroll('right')}
-                    >
-                        <Triangle direction="right" color="white" size="24" />
-                    </button>
                 </div>
             </div>
         </section>

@@ -10,7 +10,7 @@ const Footer = () => {
             <img src={logoYellowTransparent} className='h-[57px]'/>
         </div>
         <p className="text-logoGolden tracking-wider text-size-24 font-semibold">We bake emails too.</p>
-        <p className="text-logoGolden tracking-wider text-size-24 font-semibold">Sign up to <span className="">receive the latest news.</span></p>
+        <p className="text-logoGolden tracking-wider text-size-24 font-semibold text-center md:text-left">Sign up to <span className="">receive the latest news.</span></p>
 
         <div className="flex mt-8 mb-7 p-3 border-1 border border-white rounded-sm grow w-full max-w-[470px]">
           <input
@@ -23,7 +23,7 @@ const Footer = () => {
 
         <div className="flex items-start mb-7">
           <input type="checkbox" className="mr-2 mt-1" />
-          <p className="text-size-14 text-white font-normal leading-tight">
+          <p className="text-size-14 text-white font-normal leading-normal">
             By providing your email, you consent to our Privacy<br />
             Policy and Terms & Conditions.
           </p>
@@ -52,7 +52,6 @@ const Footer = () => {
           <ul className='space-y-6'>
             <li className="hover:underline cursor-pointer text-size-14 font-normal">Privacy Policy</li>
             <li className="hover:underline cursor-pointer text-size-14 font-normal">Terms & Conditions</li>
-            <li className="hover:underline cursor-pointer text-size-14 font-normal">FAQ</li>
             <li className="hover:underline cursor-pointer text-size-14 font-normal">Contact Us</li>
           </ul>
         </div>

@@ -27,6 +27,7 @@ import AdminProtectedRoute from './components/admin/AdminProtectedRoute';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Contact from './pages/Contact';
+import WebLinqoLanding from './pages/user/LandingPage';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
     <Toaster position="top-center" />
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<WebLinqoLanding />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/verify" element={<VerifyOTPPage />} />
         <Route path="/login" element={<Login />} />

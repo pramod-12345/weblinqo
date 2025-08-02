@@ -14,15 +14,15 @@ const Hero = () => {
                     </h1>
                     <div className='flex items-center mt-10 gap-10 lg:justify-between justify-center flex-col lg:flex-row'>
                         <div className='flex items-center justify-start flex-col lg:items-start'>
-                            <p className='font-normal text-size-18 text-gray-400 text-center lg:text-start w-[60%]'>Join 70M+ people using Weblingo for their link in bio. One link to help you share everything you create, curate and sell from your Instagram, TikTok, Twitter, YouTube and other social media profiles.</p>
+                            <p className='font-normal text-size-18 text-gray-400 text-center lg:text-start md:w-[60%] w-[80%]'>Join 70M+ people using Weblingo for their link in bio. One link to help you share everything you create, curate and sell from your Instagram, TikTok, Twitter, YouTube and other social media profiles.</p>
                             <Link
                                 to="/signup">
-                                <button className="mt-14 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-6 rounded-full shadow-md hover:from-blue-600 hover:to-purple-600 transition duration-300">
+                                <button className="mt-14 bg-gradient-to-r from-primary to-purple-500 text-white font-semibold py-2 px-6 rounded-full shadow-md hover:from-blue-600 hover:to-purple-600 transition duration-300">
                                     Get Started for Free
                                 </button>
                             </Link>
                         </div>
-                        <img src={socialImg} className='w-full max-w-[262px] aspect-square' />
+                        <img src={socialImg} className='w-full max-w-[262px] aspect-square lg:mr-20' />
                     </div>
                 </div>
 

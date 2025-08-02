@@ -38,7 +38,7 @@ const Faq = () => {
   };
 
   return (
-    <div className=" mb-[4.5rem] px-4 flex justify-center items-center flex-col">
+    <div className="px-4 flex justify-center items-center flex-col">
         <SectionTitle title={'Frequently Asked Questions'}/>
       <div className="bg-white rounded-2xl overflow-hidden shadow-md w-full max-w-2xl border border-gray-300">
         {/* <h2 className="text-3xl font-bold text-center py-6">FAQ</h2> */}
@@ -46,7 +46,7 @@ const Faq = () => {
           <div key={index} className="border-t border-gray-200">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full bg-[#2848F040] px-5 py-6 text-size-20 font-normal text-black flex justify-between items-center focus:outline-none"
+              className="w-full bg-[#2848F040] text-left px-5 py-6 text-size-20 font-normal text-black flex justify-between items-center focus:outline-none"
             >
               <span>{item.question}</span>
               <FaChevronDown

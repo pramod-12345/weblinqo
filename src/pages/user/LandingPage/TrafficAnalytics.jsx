@@ -4,7 +4,7 @@ import trafficAnalytics  from '../../../assets/images/svg/trafficAnalyticsImg.sv
 
 const TrafficAnalyticsSection = () => {
   return (
-    <section className="mt-[4.5rem] px-4">
+    <section className="mt-[4.5rem] sm:mt-[8rem] px-4">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
         
         {/* Left Text Section */}
