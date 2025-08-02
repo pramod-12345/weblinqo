@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
+import logo from '../../assets/images/logos/logo-black-transparent.svg'
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -18,11 +19,10 @@ const Navbar = () => {
                         className="flex items-center gap-2 text-2xl font-bold text-gray-900 hover:opacity-90 transition-opacity"
                     >
                         <img
-                            src="/weblinqo.svg"
+                            src={logo}
                             alt="weblinqo Logo"
-                            className="w-12 h-12"
+                            className="h-10"
                         />
-                        <span className="font-extrabold text-black">weblinqo</span>
                     </Link>
 
                     {/* Desktop Nav */}
@@ -37,7 +37,7 @@ const Navbar = () => {
 
                     <div className="hidden md:block">
                         <Link
-                            className="bg-primary hover:bg-white border-2 border-primary text-white hover:text-primary font-semibold text-base px-6 py-2.5 rounded-full transition-all duration-200"
+                            className="bg-primary hover:bg-white border-2 border-primary text-white hover:text-primary font-semibold text-base px-5 py-2 rounded-full transition-all duration-200"
                             to="/signup"
                         >
                             Sign up
