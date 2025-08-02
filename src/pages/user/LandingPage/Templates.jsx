@@ -191,7 +191,7 @@ const Templates = () => {
 
     const scroll = (direction) => {
         if (scrollRef.current) {
-            const scrollAmount = 300;
+            const scrollAmount = window.innerWidth > 768 ? 330 : 260;
             scrollRef.current.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
                 behavior: 'smooth',
