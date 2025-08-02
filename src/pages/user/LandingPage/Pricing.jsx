@@ -70,8 +70,8 @@ const PricingPlans = () => {
     }, []);
     return (
         <div className="mb-[72px] px-4 flex justify-center flex-col items-center">
-            <SectionTitle title={'Pricing Plan'} style={'mb-[20px]'} />
-            <SectionTitle title={'Plans that work best for you'} style={'mt-[0px]'} />
+            <SectionTitle title={'Pricing Plan'} style={'mb-[20px] mt-[4.5rem]'} />
+            <SectionTitle title={'Plans that work best for you'} style={'mt-[0px] mb-10'} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl w-full">
                 {loading ? (
                     <p className="text-gray-500 text-center w-full py-10 font-semibold text-lg">
